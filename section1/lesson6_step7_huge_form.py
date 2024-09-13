@@ -1,0 +1,15 @@
+from selenium.webdriver.common.by import By
+
+from setup import create_browser, get_alert_text
+
+browser = create_browser()
+
+browser.get('https://suninjuly.github.io/huge_form.html')
+
+elements = browser.find_elements(By.CSS_SELECTOR, 'input')
+for element in elements:
+    element.send_keys('stop the war')
+
+browser.find_element(By.CSS_SELECTOR, 'button').click()
+
+get_alert_text(browser)
